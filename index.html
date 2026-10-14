@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2f2f2">
+  <meta name="description" content="CCPhotoWall 照片牆">
+  <title>圖片牆 · CCPhotoWall</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="wall.js"></script>
+</head>
+<body>
+  <main id="wall" class="wall" aria-label="照片牆" aria-busy="true"></main>
+  <p id="status" class="status" role="status">正在載入照片…</p>
+  <footer class="wall-footer"><a href="admin.html">管理照片</a></footer>
+  <dialog id="viewer" class="viewer" aria-label="檢視照片">
+    <button class="viewer-close" type="button" aria-label="關閉">×</button>
+    <button class="viewer-prev" type="button" aria-label="上一張">‹</button>
+    <figure><img id="viewer-image" alt=""><figcaption id="viewer-count" aria-live="polite"></figcaption></figure>
+    <button class="viewer-next" type="button" aria-label="下一張">›</button>
+  </dialog>
+</body>
+</html>

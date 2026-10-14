@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>管理照片 · CCPhotoWall</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+  <script type="module" src="admin.js"></script>
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <header class="admin-header"><div><a class="eyebrow" href="./">CCPhotoWall ↗</a><h1>管理照片</h1><p>由你挑選，所有人看到同一面照片牆。</p></div><a class="button secondary" href="https://github.com/sces5504/CCPhotoWall/upload/main/assets/photos" target="_blank" rel="noopener">新增照片 ↗</a></header>
+    <section class="publish-card" aria-labelledby="publish-title">
+      <div><h2 id="publish-title">選好照片，再發布</h2><p>勾選照片 → 隱藏或恢復 → 預覽 → 下載名單 → 上傳 GitHub。</p><p class="muted">這裡的修改是草稿。只有用你的 GitHub 帳號提交名單後，訪客看到的照片才會改變。</p></div>
+      <div class="publish-actions"><button id="preview" type="button" disabled>預覽照片牆</button><button id="download" type="button" disabled>下載隱藏名單</button><a class="button secondary" id="publish-link" href="https://github.com/sces5504/CCPhotoWall/upload/main/data" target="_blank" rel="noopener">上傳名單 ↗</a></div>
+      <details><summary>怎麼發布？</summary><ol><li>下載的檔案必須叫 <code>visibility.json</code>。若瀏覽器加上了「(1)」，請先改回原名。</li><li>按「上傳名單」，將檔案拖入 GitHub 上傳頁，按 <strong>Commit changes</strong> 提交到 main 分支。</li><li>等待部署完成（通常一至數分鐘），所有訪客會看到你選定的結果。</li></ol><p>「新增照片」會開啟 repo 的照片資料夾。上傳 JPG、PNG、WebP、GIF 或 AVIF，提交後會自動加入照片牆最前面。請使用不同的檔名。</p></details>
+    </section>
+    <p id="admin-status" role="status" aria-live="polite">正在載入照片…</p>
+    <section class="tools" aria-label="照片篩選與批次操作">
+      <div class="filter-line"><div class="tabs" role="group" aria-label="顯示範圍"><button type="button" data-filter="all" aria-pressed="true">全部 <span id="all-count">0</span></button><button type="button" data-filter="visible" aria-pressed="false">顯示中 <span id="visible-count">0</span></button><button type="button" data-filter="hidden" aria-pressed="false">已隱藏 <span id="hidden-count">0</span></button></div><label class="search"><span class="sr-only">搜尋檔名</span><input id="search" type="search" placeholder="搜尋照片檔名" autocomplete="off"></label></div>
+      <div class="batch-line"><span id="selection-count">已選 0 張</span><button id="select-all" type="button" disabled>選取目前列表</button><button id="clear" type="button" disabled>取消選取</button><button id="hide" type="button" disabled>隱藏選取照片</button><button id="restore" type="button" disabled>恢復選取照片</button></div>
+    </section>
+    <div class="draft-tools"><button id="reset" type="button" disabled>還原為已發布名單</button><label class="import-label">匯入名單<input id="import" type="file" accept="application/json,.json"></label></div>
+    <section id="admin-grid" class="admin-grid" aria-label="照片列表" aria-busy="true"></section>
+    <p id="empty" class="status" hidden>沒有符合條件的照片。</p>
+  </main>
+</body>
+</html>
