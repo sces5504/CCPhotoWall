@@ -20,6 +20,9 @@ def make_manifest():
             raise ValueError(f'Photo filenames must have unique stems: {path.stem}')
         by_id[path.stem] = {'id': path.stem, 'filename': path.name,
                            'src': 'assets/photos/' + quote(path.name)}
+        large = ROOT / 'assets/large' / (path.stem + '.webp')
+        if large.is_file():
+            by_id[path.stem]['large'] = 'assets/large/' + quote(large.name)
     imported_ids = [photo['id'] for photo in catalog['photos']]
     missing = set(imported_ids) - by_id.keys()
     if missing:
@@ -49,6 +52,8 @@ def build():
     for filename in ['index.html', 'admin.html', 'style.css', 'admin.css', 'gallery.js', 'wall.js', 'admin.js']:
         shutil.copy2(ROOT / filename, output / filename)
     shutil.copytree(ROOT / 'assets/photos', output / 'assets/photos')
+    if (ROOT / 'assets/large').is_dir():
+        shutil.copytree(ROOT / 'assets/large', output / 'assets/large')
     (output / 'data').mkdir()
     (output / 'data/photos.json').write_text(json.dumps(manifest, ensure_ascii=False, separators=(',', ':')))
     shutil.copy2(ROOT / 'data/visibility.json', output / 'data/visibility.json')

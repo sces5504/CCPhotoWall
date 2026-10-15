@@ -41,7 +41,7 @@ export function createViewer(dialog){
   const image=dialog.querySelector('img'),counter=dialog.querySelector('figcaption');
   const prev=dialog.querySelector('.viewer-prev'),next=dialog.querySelector('.viewer-next');
   let photos=[],position=0,previousFocus;
-  function show(index){position=Math.max(0,Math.min(index,photos.length-1));const photo=photos[position];image.src=photo.src;image.alt=`第 ${position+1} 張照片`;counter.textContent=`${position+1} / ${photos.length}`;prev.disabled=position===0;next.disabled=position===photos.length-1;}
+  function show(index){position=Math.max(0,Math.min(index,photos.length-1));const photo=photos[position];image.onerror=photo.large?()=>{image.onerror=null;image.src=photo.src;}:null;image.src=photo.large||photo.src;image.alt=`第 ${position+1} 張照片`;counter.textContent=`${position+1} / ${photos.length}`;prev.disabled=position===0;next.disabled=position===photos.length-1;}
   prev.addEventListener('click',()=>show(position-1));next.addEventListener('click',()=>show(position+1));
   dialog.querySelector('.viewer-close').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();show(position-1);}if(event.key==='ArrowRight'){event.preventDefault();show(position+1);}});
