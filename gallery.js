@@ -40,13 +40,11 @@ export function renderWall(wall,manifest,hidden,onOpen){
 export function createViewer(dialog){
   const image=dialog.querySelector('img'),counter=dialog.querySelector('figcaption');
   const prev=dialog.querySelector('.viewer-prev'),next=dialog.querySelector('.viewer-next');
-  let photos=[],position=0,startX=0,previousFocus;
+  let photos=[],position=0,previousFocus;
   function show(index){position=Math.max(0,Math.min(index,photos.length-1));const photo=photos[position];image.src=photo.src;image.alt=`第 ${position+1} 張照片`;counter.textContent=`${position+1} / ${photos.length}`;prev.disabled=position===0;next.disabled=position===photos.length-1;}
   prev.addEventListener('click',()=>show(position-1));next.addEventListener('click',()=>show(position+1));
   dialog.querySelector('.viewer-close').addEventListener('click',()=>dialog.close());
   dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();show(position-1);}if(event.key==='ArrowRight'){event.preventDefault();show(position+1);}});
-  dialog.addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX;},{passive:true});
-  dialog.addEventListener('touchend',event=>{const delta=event.changedTouches[0].clientX-startX;if(Math.abs(delta)>55)show(position+(delta<0?1:-1));},{passive:true});
   dialog.addEventListener('close',()=>{document.body.style.overflow='';image.removeAttribute('src');previousFocus?.focus({preventScroll:true});});
   return (list,index)=>{if(!list.length)return;photos=list;previousFocus=document.activeElement;show(index);document.body.style.overflow='hidden';dialog.showModal();};
 }
