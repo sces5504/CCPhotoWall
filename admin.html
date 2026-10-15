@@ -14,7 +14,7 @@
     <section class="publish-card" aria-labelledby="publish-title">
       <div><h2 id="publish-title">選好照片，再發布</h2><p>勾選照片 → 隱藏或恢復 → 預覽 → 下載名單 → 上傳 GitHub。</p><p class="muted">這裡的修改是草稿。只有用你的 GitHub 帳號提交名單後，訪客看到的照片才會改變。</p></div>
       <div class="publish-actions"><button id="preview" type="button" disabled>預覽照片牆</button><button id="download" type="button" disabled>下載隱藏名單</button><a class="button secondary" id="publish-link" href="https://github.com/sces5504/CCPhotoWall/upload/main/data" target="_blank" rel="noopener">上傳名單 ↗</a></div>
-      <details><summary>怎麼發布？</summary><ol><li>下載的檔案必須叫 <code>visibility.json</code>。若瀏覽器加上了「(1)」，請先改回原名。</li><li>按「上傳名單」，將檔案拖入 GitHub 上傳頁，按 <strong>Commit changes</strong> 提交到 main 分支。</li><li>等待部署完成（通常一至數分鐘），所有訪客會看到你選定的結果。</li></ol><p>「新增照片」會開啟 repo 的照片資料夾。上傳 JPG、PNG、WebP、GIF 或 AVIF，提交後會自動加入照片牆最前面。請使用不同的檔名。</p></details>
+      <details><summary>怎麼發布？</summary><ol><li>下載的檔案必須叫 <code>visibility.json</code>。若瀏覽器加上了「(1)」，請先改回原名。</li><li>按「上傳名單」，將檔案拖入 GitHub 上傳頁，按 <strong>Commit changes</strong> 提交到 main 分支。</li><li>等待部署完成（通常一至數分鐘），所有訪客會看到你選定的結果。</li></ol><p>「新增照片」會開啟 repo 的照片資料夾。只需上傳一張大圖（JPG、PNG、WebP、GIF 或 AVIF），建置時會自動產生列表縮圖，點開則顯示上傳的大圖。已配對的大小圖會沿用原檔。提交後會自動加入照片牆最前面，請使用不同的檔名。</p></details>
     </section>
     <p id="admin-status" role="status" aria-live="polite">正在載入照片…</p>
     <section class="tools" aria-label="照片篩選與批次操作">
