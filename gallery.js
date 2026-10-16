@@ -10,10 +10,10 @@ export async function loadGallery(){
   return {manifest,hidden:validateVisibility(visibility)};
 }
 export function visibleRows(rows,hidden){
-  // Keep the reference's row capacities, shifting visible photos into vacated places.
   const visible=rows.flat().filter(id=>!hidden.has(id));
-  let offset=0;
-  return rows.map(row=>{const filled=visible.slice(offset,offset+row.length);offset+=row.length;return filled;}).filter(row=>row.length);
+  const filled=[];
+  for(let offset=0;offset<visible.length;offset+=3)filled.push(visible.slice(offset,offset+3));
+  return filled;
 }
 export function renderWall(wall,manifest,hidden,onOpen){
   const photos=new Map(manifest.photos.map(photo=>[photo.id,photo]));
