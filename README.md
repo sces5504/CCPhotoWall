@@ -1,18 +1,20 @@
-# CCPhotoWall
+[線上體驗](https://sces5504.github.io/CCPhotoWall/) · [管理照片](https://sces5504.github.io/CCPhotoWall/admin.html) · [部署狀態](https://github.com/sces5504/CCPhotoWall/actions/workflows/pages.yml)
 
-[![GitHub Pages](https://github.com/sces5504/CCPhotoWall/actions/workflows/pages.yml/badge.svg)](https://github.com/sces5504/CCPhotoWall/actions/workflows/pages.yml)
+![CCPhotoWall — 由你挑選，與所有人分享。玻璃與紙雕質感的三欄照片牆品牌插畫](assets/large/presentation/ccphotowall-readme-banner.png)
 
-一個可以自行挑選、管理與分享的個人照片牆。透過 GitHub 上傳圖片、發布隱藏名單，就能維護所有訪客看到的同一份圖片庫。
+[![Live Demo](https://img.shields.io/badge/Live_Demo-3a786f?style=flat)](https://sces5504.github.io/CCPhotoWall/) [![GitHub](https://img.shields.io/badge/GitHub-333333?style=flat&logo=github&logoColor=white)](https://github.com/sces5504/CCPhotoWall)
 
-[瀏覽照片牆](https://sces5504.github.io/CCPhotoWall/) · [開啟管理頁](https://sces5504.github.io/CCPhotoWall/admin.html) · [查看部署狀態](https://github.com/sces5504/CCPhotoWall/actions)
+# 自己整理，共同瀏覽的照片牆
 
-## 功能特色
+CCPhotoWall 是可自行維護的個人照片牆，適合想用 GitHub 管理照片、分享精選影像的人。上傳照片後，以三欄網格呈現；在管理頁挑選要隱藏或恢復的照片，先預覽，再發布給所有訪客。
 
-- **三欄照片牆**：正方形裁切、置中排列，支援電腦與手機瀏覽。
-- **大圖檢視**：點開照片查看大圖，支援箭頭按鈕與鍵盤切換。
-- **批次管理**：單張或多張照片都能隱藏、恢復，其他照片依序補位。
-- **上傳即更新**：圖片提交到 GitHub 後，自動產生縮圖與清單，並部署至 GitHub Pages。
-- **靜態網站**：使用 HTML、CSS 與原生 JavaScript，無需資料庫或 API 金鑰；建置使用 Python 與 Pillow，GitHub Actions 會自動安裝相依套件。
+網站使用 HTML、CSS 與原生 JavaScript，由 GitHub Actions 建置並發布至 GitHub Pages，無需資料庫或 API 金鑰。
+
+## 從瀏覽到發布
+
+- **三欄瀏覽，點開看完整畫面**：照片牆以正方形縮圖排列，適用於電腦與手機。點開照片可查看大圖，支援箭頭按鈕與鍵盤切換。
+- **批次挑選，隨時恢復**：單張或多張照片都能隱藏、恢復，其餘照片依序補位。隱藏不會刪除原始檔案。
+- **上傳即更新**：提交圖片後，自動產生列表縮圖與照片清單，再部署網站。點開照片時顯示原圖。
 
 ## 快速上手：上傳自己的照片
 
